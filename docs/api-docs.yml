@@ -15,45 +15,8 @@ info:
     email: jorayev2494@gmail.com
     url: https://github.com/Djek-zb
   x-logo:
-    # url: 'https://mesgenlogistics.com/images/logo160.png'
+    url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/7a3ec529632909.55fc107b84b8c.png'
     altText: Short links
-
-#  license:
-#    name: Apache 2.0
-#    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
-
-# externalDocs:
-#   description: Find out how to create Github repo for your OpenAPI spec.
-#   url: 'https://github.com/Rebilly/generator-openapi-repo'
-
-tags:
-  - description: Everything about your Pets
-    name: Admin Sliders
-
-#  - description: Access to Petstore orders
-#    name: store
-#
-#  - description: Operations about user
-#    name: user
-#
-#  - description: |
-#      <SchemaDefinition schemaRef="#/components/schemas/Pet" />
-#    x-displayName: The Pet Model
-#    name: pet_model
-#
-#  - description: |
-#      <SchemaDefinition schemaRef="#/components/schemas/Order" exampleRef="#/components/examples/Order" showReadOnly={true} showWriteOnly={true} />
-#    name: store_model
-#    x-displayName: The Order Model
-
-# x-tagGroups:
-#   - name: Admin
-#     tags:
-#       - Admin login
-
-#   - name: Client
-#     tags:
-#       - Client
 
 paths:
   /:
