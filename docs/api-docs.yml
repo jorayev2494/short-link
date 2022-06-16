@@ -1,0 +1,129 @@
+openapi: 3.0.0
+servers:
+  - description: Local server
+    url: http://127.0.0.1:8083/api
+
+  - description: Develop server
+    url: http://80.208.225.82:8083/api
+info:
+  description: 
+  version: 1.0.0
+  title: Short links
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    name: Yakub Jorayev
+    email: jorayev2494@gmail.com
+    url: https://github.com/Djek-zb
+  x-logo:
+    # url: 'https://mesgenlogistics.com/images/logo160.png'
+    altText: Short links
+
+#  license:
+#    name: Apache 2.0
+#    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+
+# externalDocs:
+#   description: Find out how to create Github repo for your OpenAPI spec.
+#   url: 'https://github.com/Rebilly/generator-openapi-repo'
+
+tags:
+  - description: Everything about your Pets
+    name: Admin Sliders
+
+#  - description: Access to Petstore orders
+#    name: store
+#
+#  - description: Operations about user
+#    name: user
+#
+#  - description: |
+#      <SchemaDefinition schemaRef="#/components/schemas/Pet" />
+#    x-displayName: The Pet Model
+#    name: pet_model
+#
+#  - description: |
+#      <SchemaDefinition schemaRef="#/components/schemas/Order" exampleRef="#/components/examples/Order" showReadOnly={true} showWriteOnly={true} />
+#    name: store_model
+#    x-displayName: The Order Model
+
+# x-tagGroups:
+#   - name: Admin
+#     tags:
+#       - Admin login
+
+#   - name: Client
+#     tags:
+#       - Client
+
+paths:
+  /:
+    get:
+      summary: "Get urls"
+      tags:
+        - Urls
+      responses: 
+        200: 
+          $ref: "#/components/responses/UrlsResponse"
+          
+    post:
+      summary: "Create url"
+      tags: 
+        -  Urls
+      requestBody: 
+        content: 
+          application/json: 
+            schema: 
+              type: object
+              required: 
+                -  client_url
+              properties:
+                client_url:
+                  type: string
+                  example: "https://www.youtube.com/watch?v=R1HyisEtjsM"
+      responses: 
+        200: 
+          $ref: "#/components/responses/UrlResponse"
+          
+  /{short_url}:
+    get: 
+      summary: "Visit url"
+      tags: 
+        -  Urls
+      responses: 
+        302:
+          description: "Redirect to original url" 
+          
+
+components: 
+  schemas:
+      UrlSchema:
+        type: object
+        properties:
+          short_url:
+            type: string
+            example: "FOceL"
+            uniqueItems: true   
+          full_short_url:
+            type: string
+            example: "http://127.0.0.1:8083/api/FOceL"
+            uniqueItems: true   
+          visited_count:
+            type: integer
+            example: 4
+            minimum: 0
+  parameters:
+  requestBodies:
+  responses:
+    UrlResponse:
+      content:
+        application/json:
+          schema: 
+            $ref: "#/components/schemas/UrlSchema"
+    
+    UrlsResponse:
+      content:
+        application/json:
+          schema: 
+            type: array
+            items:
+              $ref: "#/components/schemas/UrlSchema"

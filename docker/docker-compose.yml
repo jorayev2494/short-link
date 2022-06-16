@@ -116,6 +116,21 @@ services:
         networks:
             - shortLink
 
+    redoc:
+        image: redocly/redoc
+        container_name: ${COMPOSER_PROJECT_NAME}-redoc
+        restart: unless-stopped
+        tty: true
+        volumes:
+            - ../docs/:/usr/share/nginx/html/swagger/
+        environment:
+            - SPEC_URL=swagger/api-docs.yml
+        ports:
+            - 8084:80
+            - 5554:8080
+        networks:
+            - shortLink
+
 networks:
     shortLink:
         driver: bridge
