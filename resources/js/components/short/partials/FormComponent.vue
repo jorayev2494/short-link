@@ -26,7 +26,7 @@ export default {
         return {
             message: null,
             link: {
-                client_url: 'http://google.com'
+                client_url: ''
             }
         }
     },
